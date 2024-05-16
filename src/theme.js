@@ -201,6 +201,7 @@ export const themeSettings = (mode) => {
                 fontSize: 14,
               },
             },
+          }
     )
     }
   }
@@ -216,11 +217,8 @@ export const useMode = () => {
   const [mode, setMode] = useState("dark");
 
   const colorMode = useMemo(() => ({
-    toggleColorMode: () => setMode((prev) => (
-      prev === "light" ? "dark" : "light"
-    )),
-    []
-  }));
+    toggleColorMode: () => setMode((prev) => (prev === "light" ? "dark" : "light"))
+  }), [])
 
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode])
 
